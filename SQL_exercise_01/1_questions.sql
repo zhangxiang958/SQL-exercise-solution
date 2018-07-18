@@ -8,7 +8,7 @@ SELECT name FROM Products WHERE prices <= 200;
 -- 1.4 Select all the products with a price between $60 and $120.
 SELECT * FROM Products WHERE prices BETWEEN 60 AND 120;
 -- 1.5 Select the name and price in cents (i.e., the price must be multiplied by 100).
-
+SELECT name, price * 100 FROM Products;
 -- 1.6 Compute the average price of all the products.
 SELECT 
 -- 1.7 Compute the average price of all products with manufacturer code equal to 2.
