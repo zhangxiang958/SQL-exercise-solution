@@ -10,9 +10,11 @@ SELECT * FROM Products WHERE prices BETWEEN 60 AND 120;
 -- 1.5 Select the name and price in cents (i.e., the price must be multiplied by 100).
 SELECT name, price * 100 FROM Products;
 -- 1.6 Compute the average price of all the products.
-SELECT 
+SELECT AVG(price) as avg_prices FROM Products;
 -- 1.7 Compute the average price of all products with manufacturer code equal to 2.
+SELECT AVG(price) as avg_prices FROM Products WHERE Manufacturer = 2;
 -- 1.8 Compute the number of products with a price larger than or equal to $180.
+SELECT COUNT(*) as pruducts_count FROM Products WHERE price >= 180;
 -- 1.9 Select the name and price of all products with a price larger than or equal to $180, and sort first by price (in descending order), and then by name (in ascending order).
 -- 1.10 Select all the data from the products, including all the data for each product's manufacturer.
 -- 1.11 Select the product name, price, and manufacturer name of all the products.
