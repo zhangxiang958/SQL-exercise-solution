@@ -18,10 +18,13 @@ SELECT COUNT(*) as pruducts_count FROM Products WHERE price >= 180;
 -- 1.9 Select the name and price of all products with a price larger than or equal to $180, and sort first by price (in descending order), and then by name (in ascending order).
 SELECT name, price FROM Products WHERE price >= 180 ORDER BY price, name;
 -- 1.10 Select all the data from the products, including all the data for each product's manufacturer.
-SELECT 
+SELECT * FROM Products p LEFT JOIN Manufacturer m ON p.manufacturer = m.code;
 -- 1.11 Select the product name, price, and manufacturer name of all the products.
+SELECT p.name as name, p.price as price, m.name as manufactturer FROM Products p left join Manufacturer m ON m.manufactturer = m.code;
 -- 1.12 Select the average price of each manufacturer's products, showing only the manufacturer's code.
+SELECT 
 -- 1.13 Select the average price of each manufacturer's products, showing the manufacturer's name.
+
 -- 1.14 Select the names of manufacturer whose products have an average price larger than or equal to $150.
 -- 1.15 Select the name and price of the cheapest product.
 -- 1.16 Select the name of each manufacturer along with the name and price of its most expensive product.
