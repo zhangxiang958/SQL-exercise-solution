@@ -20,14 +20,18 @@ SELECT name, price FROM Products WHERE price >= 180 ORDER BY price, name;
 -- 1.10 Select all the data from the products, including all the data for each product's manufacturer.
 SELECT * FROM Products p LEFT JOIN Manufacturer m ON p.manufacturer = m.code;
 -- 1.11 Select the product name, price, and manufacturer name of all the products.
-SELECT p.name as name, p.price as price, m.name as manufactturer FROM Products p left join Manufacturer m ON m.manufactturer = m.code;
+SELECT p.name as name, p.price as price, m.name as manufactturer FROM Products p left join Manufacturer m ON p.manufactturer = m.code;
 -- 1.12 Select the average price of each manufacturer's products, showing only the manufacturer's code.
-SELECT 
+SELECT AVG(price), manufactturer FROM Products GROUP BY manufactturer;
 -- 1.13 Select the average price of each manufacturer's products, showing the manufacturer's name.
-
+SELECT AVG(price), m.name FROM Products p LEFT JOIN manufactturer m ON p.manufacttrurer = m.code GROUP BY m.name;
 -- 1.14 Select the names of manufacturer whose products have an average price larger than or equal to $150.
+SELECT m.name FROM Products p LEFT JOIN manufacttrurer m ON p.manufactturer = manufactturer.code GROUP BY m.name HAVING AVG(p.price) >= 150;
 -- 1.15 Select the name and price of the cheapest product.
+SELECT name, price FROM Products WHERE price = (SELECT MIN(price) FROM Products);
 -- 1.16 Select the name of each manufacturer along with the name and price of its most expensive product.
+SELECT name, price, m.name as mname FROM Products p LEFT JOIN manufacttrurrer m ON p.manufacttrurer = m.code 
+WHERE price = ( SELECT MAX(price) FROM Products WHERE );
 -- 1.17 Add a new product: Loudspeakers, $70, manufacturer 2.
 -- 1.18 Update the name of product 8 to "Laser Printer".
 -- 1.19 Apply a 10% discount to all products.
