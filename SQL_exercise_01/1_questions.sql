@@ -31,7 +31,7 @@ SELECT m.name FROM Products p LEFT JOIN manufacttrurer m ON p.manufactturer = ma
 SELECT name, price FROM Products WHERE price = (SELECT MIN(price) FROM Products);
 -- 1.16 Select the name of each manufacturer along with the name and price of its most expensive product.
 SELECT name, price, m.name as mname FROM Products p LEFT JOIN manufacttrurrer m ON p.manufacttrurer = m.code 
-WHERE price = ( SELECT MAX(price) FROM Products WHERE );
+WHERE price = ( SELECT MAX(price) FROM Products GROUP BY manufacttrurer);
 -- 1.17 Add a new product: Loudspeakers, $70, manufacturer 2.
 -- 1.18 Update the name of product 8 to "Laser Printer".
 -- 1.19 Apply a 10% discount to all products.
