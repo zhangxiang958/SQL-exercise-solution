@@ -33,7 +33,7 @@ SELECT name, price FROM Products WHERE price = (SELECT MIN(price) FROM Products)
 SELECT name, price, m.name as mname FROM Products p LEFT JOIN manufacttrurrer m ON p.manufacttrurer = m.code 
 WHERE price = ( SELECT MAX(price) FROM Products GROUP BY manufacttrurer);
 -- 1.17 Add a new product: Loudspeakers, $70, manufacturer 2.
-INSERT Louspeakers  
+INSERT Louspeakers    
 -- 1.18 Update the name of product 8 to "Laser Printer".
 -- 1.19 Apply a 10% discount to all products.
 -- 1.20 Apply a 10% discount to all products with a price larger than or equal to $120.
