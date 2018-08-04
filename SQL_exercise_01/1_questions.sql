@@ -30,10 +30,17 @@ SELECT m.name FROM Products p LEFT JOIN manufacttrurer m ON p.manufactturer = ma
 -- 1.15 Select the name and price of the cheapest product.
 SELECT name, price FROM Products WHERE price = (SELECT MIN(price) FROM Products);
 -- 1.16 Select the name of each manufacturer along with the name and price of its most expensive product.
-SELECT name, price, m.name as mname FROM Products p LEFT JOIN manufacttrurrer m ON p.manufacttrurer = m.code 
-WHERE price = ( SELECT MAX(price) FROM Products GROUP BY manufacttrurer);
+SELECT manufacturerName, price, name FROM
+(SELECT Manufacturer, max(price) as max_price FROM Products, Manufacturers WHERE Products.Manufacturer = Manufacturers.code GROUP BY Manufacturers) as max_proce_map
+LEFT JOIN
+(SELECT name, price, manufacturer, Manufacturer.name as manufacturerName FROM Products, Manufacturers WHERE Products.Manufacturer = Manufacturers.code) as full_table
+ON (max_proce_map.max_price = full_table.price AND max_price.map.Manufacturer = full_table.Manufacturer);
+
 -- 1.17 Add a new product: Loudspeakers, $70, manufacturer 2.
-INSERT Louspeakers    
+INSERT INTO Products values(11, 'Louspeakers', 70, 2); 
 -- 1.18 Update the name of product 8 to "Laser Printer".
+UPDATE Products SET name = 'Laser Printer' WHERE code = 8;
 -- 1.19 Apply a 10% discount to all products.
+UPDATE Products SET price = price*0.9;
 -- 1.20 Apply a 10% discount to all products with a price larger than or equal to $120.
+UPDATE Products SET price = prices*0.9 WHERE price >= 120;
