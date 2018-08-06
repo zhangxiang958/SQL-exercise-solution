@@ -16,7 +16,7 @@ SELECT * FROM employees WHERE lastname LiKE 'S%';
 -- 2.8 Select the sum of all the departments' budgets.
 SELECT SUM(budget) FROM department;
 -- 2.9 Select the number of employees in each department (you only need to show the department code and the number of employees).
-SELECT 
+SELECT COUNT(SSN), code FROM employees, department WHERE employees.department = department.code GROUP BY employees;
 -- 2.10 Select all the data of employees, including each employee's department's data.
 -- 2.11 Select the name and last name of each employee, along with the name and budget of the employee's department.
 -- 2.12 Select the name and last name of employees working for departments with a budget greater than $60,000.
