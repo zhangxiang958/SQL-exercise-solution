@@ -18,9 +18,13 @@ SELECT SUM(budget) FROM department;
 -- 2.9 Select the number of employees in each department (you only need to show the department code and the number of employees).
 SELECT COUNT(SSN), code FROM employees, department WHERE employees.department = department.code GROUP BY employees;
 -- 2.10 Select all the data of employees, including each employee's department's data.
+SELECT * FROM employees, department WHERE employees.department = department.code;
 -- 2.11 Select the name and last name of each employee, along with the name and budget of the employee's department.
+SELECT name, lastname, department.name AS departmentname, budget FROM employees, department WHERE employees.department = department.code;
 -- 2.12 Select the name and last name of employees working for departments with a budget greater than $60,000.
+SELECT name, lastname FROM employees, department WHERE department.budget > 60000;
 -- 2.13 Select the departments with a budget larger than the average budget of all the departments.
+SELECT 
 -- 2.14 Select the names of departments with more than two employees.
 -- 2.15 Very Important - Select the name and last name of employees working for departments with second lowest budget.
 -- 2.16  Add a new department called "Quality Assurance", with a budget of $40,000 and departmental code 11. 
