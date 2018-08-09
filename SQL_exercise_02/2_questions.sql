@@ -28,6 +28,7 @@ SELECT * FROM department WHERE budget > (SELECT AVG(budget) FROM department);
 -- 2.14 Select the names of departments with more than two employees.
 SELECT name FROM (SELECT COUNT(*) AS employeesCount, department FROM employees GROUP BY department) count WHERE employeesCount > 2;
 -- 2.15 Very Important - Select the name and last name of employees working for departments with second lowest budget.
+SELECT 
 -- 2.16  Add a new department called "Quality Assurance", with a budget of $40,000 and departmental code 11. 
 -- And Add an employee called "Mary Moore" in that department, with SSN 847-21-9811.
 -- 2.17 Reduce the budget of all departments by 10%.
