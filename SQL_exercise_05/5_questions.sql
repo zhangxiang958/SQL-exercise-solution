@@ -18,8 +18,11 @@ SELECT name FROM pieces, provides, providers WHERE pieces.code = provides AND pr
 SELECT price.name, price, providers.name FROM pieces, providers, provides WHERE piece IN (SELECT piece, provider, MAX(price) FROM provides GROUP BY piece)
 -- ---------------------------------------------
 -- 5.7 Add an entry to the database to indicate that "Skellington Supplies" (code "TNBC") will provide sprockets (code "1") for 7 cents each.
-INSERT INTO 
+INSERT INTO Provides(Piece, Provider, Price) VALUES(1, 'TNBC', 7);
 -- 5.8 Increase all prices by one cent.
+UPDATE provides SET price = price + 1;
 -- 5.9 Update the database to reflect that "Susan Calvin Corp." (code "RBT") will not supply bolts (code 4).
+DELETE FROM provides WHERE provider = 'RBT' AND piece = 4;
 -- 5.10 Update the database to reflect that "Susan Calvin Corp." (code "RBT") will not supply any pieces 
     -- (the provider should still remain in the database).
+DELETE FROM provides WHERE provider = 'RBT';
